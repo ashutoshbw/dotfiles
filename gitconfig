@@ -1,0 +1,12 @@
+[init]
+  defaultBranch = main
+[user]
+  name = Ashutosh Biswas
+  email = ashutoshbw314@gmail.com
+[core]
+  editor = nvim
+  pager = cat
+[alias]
+  i = init
+  st = status
+  lo = log --oneline
