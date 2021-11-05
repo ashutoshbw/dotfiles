@@ -172,10 +172,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 1 px or 1 ppt
-        bindsym j resize grow height 1 px or 1 ppt
-        bindsym k resize shrink height 1 px or 1 ppt
-        bindsym l resize grow width 1 px or 1 ppt
+
+        bindsym h resize shrink width 10 px
+        bindsym j resize grow height 10 px
+        bindsym k resize shrink height 10 px
+        bindsym l resize grow width 10 px
+
+        bindsym CTRL+h resize shrink width 1 px
+        bindsym CTRL+j resize grow height 1 px
+        bindsym CTRL+k resize shrink height 1 px
+        bindsym CTRL+l resize grow width 1 px
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -191,7 +197,14 @@ bar {
         status_command i3status
 }
 
-# Wallpaper
-# set $i3lockwall i3lock -i ~/Downloads/wp-simple-1.png
+# On locking
 set $i3lockwall sh ~/.config/i3/scripts/lock.sh
 bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
+
+# Wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/feh/galaxy.jpg
+
+# floating pop up automatically
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="Arandr"] floating enable
