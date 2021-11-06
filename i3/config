@@ -208,3 +208,10 @@ exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/feh/galaxy.jpg
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
+
+## Hide borders in workspace containing only a single window
+hide_edge_borders smart
+
+# Hides title bar
+default_border pixel 2
+

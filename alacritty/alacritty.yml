@@ -81,3 +81,8 @@ font:
   offset:
     x: -1
     y: 0
+
+window:
+  padding:
+    x: 4
+    y: 4
