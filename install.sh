@@ -27,3 +27,9 @@ ln -s "$HOME/dotfiles/zathura" "$HOME/.config"
 
 # =[ gitconfig ]=
 ln -sf "$HOME/dotfiles/gitconfig" "$HOME/.gitconfig"
+
+# =[ zsh ]=
+mkdir -p "$HOME/.config/zsh"
+ln -sf "$HOME/dotfiles/zsh/.zshenv" "$HOME"
+ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME/.config/zsh"
+
