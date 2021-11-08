@@ -82,6 +82,8 @@ font:
     x: -1
     y: 0
 
+background_opacity: 0.9
+
 window:
   padding:
     x: 4
