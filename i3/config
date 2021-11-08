@@ -226,6 +226,7 @@ for_window [title="blank" class="Alacritty"] resize set 700 400
 for_window [title="htop"  class="Alacritty"] resize set 900 500
 for_window [title="math"  class="Alacritty"] resize set 400 100
 
+# Using manual initial positioning instead of initial "move position center" cause that seems somewhat buggy
 for_window [title="blank" class="Alacritty"] move position 333 px 184 px
 for_window [title="htop"  class="Alacritty"] move position 233 px 132 px
 for_window [title="math"  class="Alacritty"] move position 916 px 618 px
