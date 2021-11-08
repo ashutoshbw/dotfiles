@@ -64,11 +64,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# move focused window in both tiling and floating mode
+bindsym $mod+Shift+h move left 20 px
+bindsym $mod+Shift+j move down 20 px
+bindsym $mod+Shift+k move up 20 px
+bindsym $mod+Shift+l move right 20 px
 
 # split in horizontal orientation
 bindsym $mod+mod1+h split v
@@ -209,9 +209,27 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 
-## Hide borders in workspace containing only a single window
+# Hide borders in workspace containing only a single window
 hide_edge_borders smart
 
 # Hides title bar
 default_border pixel 2
 
+# Scratchpad terminals
+exec --no-startup-id alacritty -t blank
+exec --no-startup-id alacritty -t htop -e htop
+exec --no-startup-id alacritty -t math -e python
+
+for_window [title="blank|htop|math" class="Alacritty"] floating enable, border pixel 4, move scratchpad
+
+for_window [title="blank" class="Alacritty"] resize set 700 400
+for_window [title="htop"  class="Alacritty"] resize set 900 500
+for_window [title="math"  class="Alacritty"] resize set 400 100
+
+for_window [title="blank" class="Alacritty"] move position 333 px 184 px
+for_window [title="htop"  class="Alacritty"] move position 233 px 132 px
+for_window [title="math"  class="Alacritty"] move position 916 px 618 px
+
+bindsym $mod+Shift+t [title="blank" class="Alacritty"] scratchpad show
+bindsym $mod+Shift+o [title="htop"  class="Alacritty"] scratchpad show
+bindsym $mod+Shift+m [title="math"  class="Alacritty"] scratchpad show
