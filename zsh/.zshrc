@@ -38,3 +38,5 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+autoload -Uz bd && bd
