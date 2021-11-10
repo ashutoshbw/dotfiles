@@ -84,6 +84,11 @@ font:
 
 background_opacity: 0.9
 
+cursor:
+  style:
+    blinking: on
+  blink_interval: 200
+
 window:
   padding:
     x: 4
