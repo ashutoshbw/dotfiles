@@ -40,3 +40,16 @@ bindkey -M vicmd v edit-command-line
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -Uz bd && bd
+
+source $DOTFILES/zsh/scripts.sh
+
+if [ $(command -v "fzf") ]; then
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+fi
+
+
+# start i3 automatically
+if [ "$(tty)" = "/dev/tty1" ]; then
+  pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+fi
