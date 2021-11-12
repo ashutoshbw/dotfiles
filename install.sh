@@ -1,38 +1,62 @@
 #!/bin/bash
 
-# =[ X11 ]=
-rm -rf "$HOME/.config/X11"
-ln -s "$HOME/dotfiles/X11" "$HOME/.config"
+#
+# X11
+#
 
-# =[ i3 ]=
-rm -rf "$HOME/.config/i3"
-ln -s "$HOME/dotfiles/i3" "$HOME/.config"
+rm -rf "$XDG_CONFIG_HOME/X11"
+ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
 
-# =[ alacritty ]=
-rm -rf "$HOME/.config/alacritty"
-ln -s "$HOME/dotfiles/alacritty" "$HOME/.config"
+#
+# i3
+#
 
-# =[ nvim ]=
-mkdir -p "$HOME/.config/nvim"
-mkdir -p "$HOME/.config/nvim/undo"
-ln -sf "$HOME/dotfiles/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+rm -rf "$XDG_CONFIG_HOME/i3"
+ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
 
-# =[ ranger ]=
-rm -rf "$HOME/.config/ranger"
-ln -s "$HOME/dotfiles/ranger" "$HOME/.config"
+#
+# alacritty
+#
 
-# =[ zathura ]=
-rm -rf "$HOME/.config/zathura"
-ln -s "$HOME/dotfiles/zathura" "$HOME/.config"
+rm -rf "$XDG_CONFIG_HOME/alacritty"
+ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"
 
-# =[ gitconfig ]=
-ln -sf "$HOME/dotfiles/gitconfig" "$HOME/.gitconfig"
+#
+# nvim
+#
 
-# =[ zsh ]=
-mkdir -p "$HOME/.config/zsh"
-ln -sf "$HOME/dotfiles/zsh/.zshenv" "$HOME"
-ln -sf "$HOME/dotfiles/zsh/.zshrc" "$HOME/.config/zsh"
-ln -sf "$HOME/dotfiles/zsh/aliases" "$HOME/.config/zsh"
+mkdir -p "$XDG_CONFIG_HOME/nvim"
+mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
+ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim/init.vim"
 
-rm -rf "$HOME/.config/zsh/external"
-ln -sf "$HOME/dotfiles/zsh/external" "$HOME/.config/zsh"
+#
+# ranger
+#
+
+rm -rf "$XDG_CONFIG_HOME/ranger"
+ln -s "$DOTFILES/ranger" "$XDG_CONFIG_HOME"
+
+#
+# zathura
+#
+
+rm -rf "$XDG_CONFIG_HOME/zathura"
+ln -s "$DOTFILES/zathura" "$XDG_CONFIG_HOME"
+
+#
+# gitconfig
+#
+
+ln -sf "$DOTFILES/gitconfig" "$HOME/.gitconfig"
+
+#
+# zsh
+#
+
+mkdir -p "$XDG_CONFIG_HOME/zsh"
+ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
+ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
+ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh"
+
+rm -rf "$XDG_CONFIG_HOME/zsh/external"
+ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
