@@ -65,5 +65,12 @@ ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
 # Fonts
 #
 
+# Install manually installed fonts
 mkdir -p "$XDG_DATA_HOME"
 cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
+
+
+# fontconfig conf
+rm -rf "$XDG_CONFIG_HOME/fontconfig"
+ln -s "$DOTFILES/fontconfig" "$XDG_CONFIG_HOME"
+
