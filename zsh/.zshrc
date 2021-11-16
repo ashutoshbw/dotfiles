@@ -1,5 +1,3 @@
-source "$XDG_CONFIG_HOME/zsh/aliases"
-
 setopt AUTO_PARAM_SLASH
 unsetopt CASE_GLOB
 
@@ -8,12 +6,7 @@ autoload -Uz compinit; compinit
 # Autocomplete hidden files
 _comp_options+=(globdots)
 
-source ~/dotfiles/zsh/external/completion.zsh
-
 fpath=($ZDOTDIR/external $fpath)
-
-autoload -Uz promptinit && promptinit
-prompt purification
 
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
@@ -22,10 +15,11 @@ setopt PUSHD_IGNORE_DUPS
 # Do not print the directory stack after using pushd or popd.
 setopt PUSHD_SILENT
 
+# Enable vi mode
 bindkey -v
+# Makes the switch between insert and normal mode faster
 export KEYTIMEOUT=1
 
-autoload -Uz cursor_mode && cursor_mode
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -37,19 +31,44 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# start i3 automatically
+if [ "$(tty)" = "/dev/tty1" ]; then
+  pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+fi
 
-autoload -Uz bd && bd
+#
+# Plugins
+#
 
+# Aliases
+source "$XDG_CONFIG_HOME/zsh/aliases"
+
+# Includes the completion script from prezto framework
+# link: https://raw.githubusercontent.com/sorin-ionescu/prezto/master/modules/completion/init.zsh
+source ~/dotfiles/zsh/external/completion.zsh
+
+# Custom scripts
 source $DOTFILES/zsh/scripts.sh
 
+# Load purfication prompt
+autoload -Uz promptinit && promptinit
+prompt purification
+
+# Changes the cursor to bar style in insert mode in vi mode
+# Note that, the blinking rate is determined by terminal emulator's config usually
+autoload -Uz cursor_mode && cursor_mode
+
+# Plugin for going to a parent(or grand parent and so on) directory.
+# link: https://github.com/Tarrasch/zsh-bd
+autoload -Uz bd && bd
+
+# fzf
 if [ $(command -v "fzf") ]; then
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
 fi
 
+# Remember to source this plugin at the end of this file so everything above
+# can use the syntax hightlighting if needed.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# start i3 automatically
-if [ "$(tty)" = "/dev/tty1" ]; then
-  pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
-fi
