@@ -6,7 +6,6 @@ autoload -Uz compinit; compinit
 # Autocomplete hidden files
 _comp_options+=(globdots)
 
-fpath=($ZDOTDIR/external $fpath)
 
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
@@ -21,12 +20,20 @@ bindkey -v
 export KEYTIMEOUT=1
 
 
+# Load the `complist` module. It gives you access to `menuselect`.
+# `menuselect` allows you to customize the way you can move your cursor
+# while auto-completing.
 zmodload zsh/complist
+# Adds vim mapping for completion menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+# Enable editing a command in your preferred editor set in
+# `$EDITOR`(Neovim in this case). `vicmd` makes the keystroke `v`
+# to only work when you are in NORMAL mode(called COMMAND mode
+# in documentation).
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
@@ -40,15 +47,17 @@ fi
 # Plugins
 #
 
+# Custom scripts
+source $DOTFILES/zsh/scripts.sh
+
+fpath=($ZDOTDIR/external $fpath)
+
 # Aliases
 source "$XDG_CONFIG_HOME/zsh/aliases"
 
 # Includes the completion script from prezto framework
 # link: https://raw.githubusercontent.com/sorin-ionescu/prezto/master/modules/completion/init.zsh
-source ~/dotfiles/zsh/external/completion.zsh
-
-# Custom scripts
-source $DOTFILES/zsh/scripts.sh
+source $DOTFILES/zsh/external/completion.zsh
 
 # Load purfication prompt
 autoload -Uz promptinit && promptinit
