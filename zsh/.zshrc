@@ -53,7 +53,7 @@ source $DOTFILES/zsh/scripts.sh
 fpath=($ZDOTDIR/external $fpath)
 
 # Aliases
-source "$XDG_CONFIG_HOME/zsh/aliases"
+source "$XDG_CONFIG_HOME/zsh/aliases.sh"
 
 # Includes the completion script from prezto framework
 # link: https://raw.githubusercontent.com/sorin-ionescu/prezto/master/modules/completion/init.zsh

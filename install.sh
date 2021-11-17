@@ -56,7 +56,7 @@ ln -sf "$DOTFILES/gitconfig" "$HOME/.gitconfig"
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
 ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
-ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh"
+ln -sf "$DOTFILES/zsh/aliases.sh" "$XDG_CONFIG_HOME/zsh"
 
 rm -rf "$XDG_CONFIG_HOME/zsh/external"
 ln -s "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
