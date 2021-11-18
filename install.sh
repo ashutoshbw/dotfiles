@@ -74,3 +74,10 @@ cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
 rm -rf "$XDG_CONFIG_HOME/fontconfig"
 ln -s "$DOTFILES/fontconfig" "$XDG_CONFIG_HOME"
 
+#
+# Picom
+#
+
+rm -rf "$XDG_CONFIG_HOME/picom"
+ln -s "$DOTFILES/picom" "$XDG_CONFIG_HOME"
+

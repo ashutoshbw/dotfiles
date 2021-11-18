@@ -82,7 +82,7 @@ font:
     x: -1
     y: 0
 
-background_opacity: 0.9
+background_opacity: 0.8
 
 cursor:
   style:
