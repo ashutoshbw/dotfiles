@@ -81,3 +81,9 @@ ln -s "$DOTFILES/fontconfig" "$XDG_CONFIG_HOME"
 rm -rf "$XDG_CONFIG_HOME/picom"
 ln -s "$DOTFILES/picom" "$XDG_CONFIG_HOME"
 
+#
+# i3status-rust
+#
+
+rm -rf "$XDG_CONFIG_HOME/i3status-rust"
+ln -s "$DOTFILES/i3status-rust" "$XDG_CONFIG_HOME"
