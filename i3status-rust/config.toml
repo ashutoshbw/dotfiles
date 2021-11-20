@@ -11,7 +11,7 @@ format = "%a %d/%m %R"
 
 [[block]]
 block = "net"
-device = "wlo1"
+format= "{ssid} {speed_down;K}"
 interval = 5
 
 [[block]]

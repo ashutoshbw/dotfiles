@@ -87,3 +87,10 @@ ln -s "$DOTFILES/picom" "$XDG_CONFIG_HOME"
 
 rm -rf "$XDG_CONFIG_HOME/i3status-rust"
 ln -s "$DOTFILES/i3status-rust" "$XDG_CONFIG_HOME"
+
+#
+# Startship prompt
+#
+
+rm -rf "$XDG_CONFIG_HOME/starship"
+ln -s "$DOTFILES/starship" "$XDG_CONFIG_HOME"

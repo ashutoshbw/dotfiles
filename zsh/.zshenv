@@ -34,3 +34,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
+
+# Starship prompt config location
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/config.toml"

@@ -59,10 +59,6 @@ source "$XDG_CONFIG_HOME/zsh/aliases.sh"
 # link: https://raw.githubusercontent.com/sorin-ionescu/prezto/master/modules/completion/init.zsh
 source $DOTFILES/zsh/external/completion.zsh
 
-# Load purfication prompt
-autoload -Uz promptinit && promptinit
-prompt purification
-
 # Changes the cursor to bar style in insert mode in vi mode
 # Note that, the blinking rate is determined by terminal emulator's config usually
 autoload -Uz cursor_mode && cursor_mode
@@ -77,7 +73,8 @@ if [ $(command -v "fzf") ]; then
   source /usr/share/fzf/key-bindings.zsh
 fi
 
-# Remember to source this plugin at the end of this file so everything above
-# can use the syntax hightlighting if needed.
+# zsh-syntax-highlighting plugin 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Start starship prompt 
+eval "$(starship init zsh)"
