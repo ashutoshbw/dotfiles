@@ -6,7 +6,7 @@ ibus-daemon -drx
 xset s off -dpms
 
 # Set delay before autorepeat starts(in milliseconds) and the auto repeat rate(per second)
-xset r rate 210 23
+xset r rate 290 18
 
 picom -b
 
