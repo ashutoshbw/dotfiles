@@ -1,5 +1,3 @@
-#!/bin/bash
-
 img=/tmp/i3lock.png
 
 rm -f /tmp/i3lock*.png

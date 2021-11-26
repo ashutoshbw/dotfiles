@@ -94,3 +94,10 @@ ln -s "$DOTFILES/i3status-rust" "$XDG_CONFIG_HOME"
 
 rm -rf "$XDG_CONFIG_HOME/starship"
 ln -s "$DOTFILES/starship" "$XDG_CONFIG_HOME"
+
+#
+# My scripts
+#
+
+rm -rf "$HOME/.my-scripts"
+ln -s "$DOTFILES/my-scripts" "$HOME/.my-scripts"

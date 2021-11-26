@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pkill -f /dev/video
+
+if [[ $? -eq 0 ]]
+then
+  # Killing the webcam 2nd time is necssary when 1st time doesn't kills it.
+  # It happens when there is webcam attached to video0
+  pkill -f /dev/video
+else
+  mpv --geometry=-0-0 --autofit=30% --no-osc --no-input-default-bindings --input-conf=/dev/null av://v4l2:/dev/video0 --profile=low-latency --untimed
+fi
