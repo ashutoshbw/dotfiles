@@ -13,6 +13,6 @@ then
     droidcam-cli adb 4747 &
   fi
 else
-  notify-send "Please connect your phone with USB." -u critical
+  notify-send "Please connect your phone with USB and retry." -u critical
   pkill -f droidcam-cli
 fi

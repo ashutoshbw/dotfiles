@@ -26,7 +26,5 @@ else
     notify-send "IGNORE this message if all is OK. Otherwise make sure the Droidcam is running on your phone and on PC run 'cdwebcam' twice to restart it." -u normal
     notify-send "mpv for webcam started!" -u low
     mpv --geometry=-0-0 --autofit=30% --no-osc --no-input-default-bindings --input-conf=/dev/null av://v4l2:/dev/video0 --profile=low-latency --untimed
-  else
-    notify-send "Please make sure your phone is connected to PC using USB and droidcam-cli is running." -u normal
   fi
 fi
