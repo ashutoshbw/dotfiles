@@ -234,7 +234,7 @@ hide_edge_borders smart_no_gaps
 for_window [title="video0 - mpv"] floating enable
 for_window [title="video0 - mpv"] sticky enable
 
-bindsym $mod+Shift+y exec --no-startup-id camtoggle
+bindsym $mod+Shift+y exec --no-startup-id webcamtoggle
 bindsym $mod+mod1+y exec --no-startup-id cdwebcam
 
 # Scratchpad terminals
