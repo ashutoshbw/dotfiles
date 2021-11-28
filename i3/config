@@ -34,6 +34,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Start dunst
+exec --no-startup-id dunst
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -227,11 +230,12 @@ gaps inner 8
 # Hide edge borders only if there is one window with no gaps
 hide_edge_borders smart_no_gaps
 
-# Make the webcam float and stick
+# Make the webcam float and stick and set some useful keybindings
 for_window [title="video0 - mpv"] floating enable
 for_window [title="video0 - mpv"] sticky enable
 
 bindsym $mod+Shift+y exec --no-startup-id camtoggle
+bindsym $mod+mod1+y exec --no-startup-id cdwebcam
 
 # Scratchpad terminals
 exec --no-startup-id alacritty -t blank

@@ -101,3 +101,10 @@ ln -s "$DOTFILES/starship" "$XDG_CONFIG_HOME"
 
 rm -rf "$HOME/.my-scripts"
 ln -s "$DOTFILES/my-scripts" "$HOME/.my-scripts"
+
+#
+# dunst
+#
+
+mkdir -p "$XDG_CONFIG_HOME/dunst"
+ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"

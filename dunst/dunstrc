@@ -1,0 +1,5 @@
+[global]
+  icon_path = /usr/share/icons/Adwaita/16x16/legacy/
+  corner_radius = 7
+
+

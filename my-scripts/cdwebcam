@@ -1,0 +1,18 @@
+#!/bin/bash
+
+adb devices | grep R58R36Y5NZJ
+
+if [[ $? -eq 0 ]] 
+then
+  pkill -f droidcam-cli
+  if [[ $? -eq 0 ]]
+  then
+    notify-send "Closed droidcam."
+  else
+    notify-send "Droidcam started."
+    droidcam-cli adb 4747 &
+  fi
+else
+  notify-send "Please connect your phone with USB." -u critical
+  pkill -f droidcam-cli
+fi
