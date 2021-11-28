@@ -19,7 +19,8 @@ else
   then
     cdwebcam
   fi
-  adb devices | grep R5
+
+  adb devices | grep R58R36Y5NZJ
   if [[ $? -eq 0 ]]
   then
     notify-send "IGNORE this message if all is OK. Otherwise make sure the Droidcam is running on your phone and on PC run 'cdwebcam' twice to restart it." -u normal
