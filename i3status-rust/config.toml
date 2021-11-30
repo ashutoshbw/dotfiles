@@ -1,5 +1,13 @@
 theme = "modern"
-icons = "material-nf"
+[icons]
+name = "material-nf"
+[icons.overrides]
+pomodoro = "🍅"
+
+[[block]]
+block = "focused_window"
+max_width = 60
+show_marks = "all"
 
 [[block]]
 block = "pomodoro"
@@ -8,19 +16,37 @@ break_length = 5
 message = "Take a break!"
 break_message = "Back to work!"
 notifier = "notifysend"
+[block.theme_overrides]
+idle_bg = "#01344f"
+idle_fg = "#ffffff"
 
 [[block]]
 block = "time"
 interval = 5
 format = "%a %d/%m %R"
+[block.theme_overrides]
+idle_bg = "#1f3f5f"
+idle_fg = "#ffffff"
 
 [[block]]
 block = "net"
 format= "{ssid} {speed_down;K}"
 interval = 5
+[block.theme_overrides]
+idle_bg = "#102f33"
+idle_fg = "#ffffff"
 
 [[block]]
 block = "backlight"
+[block.theme_overrides]
+idle_bg = "#3c3836"
+idle_fg = "#eeeeee"
+
+[[block]]
+block = "sound"
+[block.theme_overrides]
+idle_bg = "#331f24"
+idle_fg = "#eeeeee"
 
 [[block]]
 block = "battery"
@@ -28,11 +54,11 @@ interval = 10
 format = "{percentage} {time}"
 
 [[block]]
-block = "sound"
-
-[[block]]
 block = "ibus"
 [block.mappings]
-"xkb:us::eng"="EN"
-"xkb:bd:probhat:ben"="BD"
+"xkb:us::eng"="🇺🇸"
+"xkb:bd:probhat:ben"="🇧🇩"
 "uniemoji"="😎"
+[block.theme_overrides]
+idle_bg = "#12161c"
+idle_fg = "#eeeeee"
