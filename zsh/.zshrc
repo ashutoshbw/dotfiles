@@ -1,11 +1,8 @@
 setopt AUTO_PARAM_SLASH
 unsetopt CASE_GLOB
 
-autoload -Uz compinit; compinit
-
 # Autocomplete hidden files
 _comp_options+=(globdots)
-
 
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
@@ -58,6 +55,8 @@ source "$XDG_CONFIG_HOME/zsh/aliases.sh"
 # Includes the completion script from prezto framework
 # link: https://raw.githubusercontent.com/sorin-ionescu/prezto/master/modules/completion/init.zsh
 source $DOTFILES/zsh/external/completion.zsh
+
+autoload -Uz compinit; compinit
 
 # Changes the cursor to bar style in insert mode in vi mode
 # Note that, the blinking rate is determined by terminal emulator's config usually
