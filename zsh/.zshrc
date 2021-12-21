@@ -64,7 +64,7 @@ autoload -Uz cursor_mode && cursor_mode
 
 # Plugin for going to a parent(or grand parent and so on) directory.
 # link: https://github.com/Tarrasch/zsh-bd
-autoload -Uz bd && bd
+autoload -Uz bd
 
 # fzf
 if [ $(command -v "fzf") ]; then
@@ -74,6 +74,10 @@ fi
 
 # zsh-syntax-highlighting plugin 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fnm
+export PATH=/home/ashutosh/.fnm:$PATH
+eval "`fnm env`"
 
 # Start starship prompt 
 eval "$(starship init zsh)"
