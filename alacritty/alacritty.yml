@@ -82,8 +82,6 @@ font:
     x: -1
     y: 0
 
-background_opacity: 1
-
 cursor:
   style:
     blinking: on
@@ -93,3 +91,4 @@ window:
   padding:
     x: 4
     y: 4
+  opacity: 0.8
