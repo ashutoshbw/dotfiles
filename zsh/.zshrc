@@ -77,7 +77,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # fnm
 export PATH=/home/ashutosh/.fnm:$PATH
-eval "`fnm env`"
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Start starship prompt 
 eval "$(starship init zsh)"
