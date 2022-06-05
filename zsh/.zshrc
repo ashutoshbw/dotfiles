@@ -47,6 +47,10 @@ fi
 # Custom scripts
 source $DOTFILES/zsh/scripts.sh
 
+
+# Fish like auto suggestion for zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 fpath=($ZDOTDIR/external $fpath)
 
 # Aliases
@@ -76,7 +80,7 @@ fi
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fnm
-export PATH=/home/ashutosh/.fnm:$PATH
+export PATH=/home/$USER/.fnm:$PATH
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Start starship prompt 
