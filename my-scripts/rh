@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+# A simple script to record everyday body stats a bit efficiently
+
+STAT_PATH=$HOME/Documents/Stats/body
+DEST=$STAT_PATH/`date -u +"%Y-%m-%d".md`
+
+
+cp $STAT_PATH/template.md $DEST && nvim $DEST
