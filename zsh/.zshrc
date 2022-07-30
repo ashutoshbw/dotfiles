@@ -80,7 +80,7 @@ fi
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fnm
-export PATH=/home/$USER/.fnm:$PATH
+export PATH=$HOME/.fnm:$PATH
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Start starship prompt 
