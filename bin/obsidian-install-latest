@@ -17,5 +17,5 @@ echo "Download complete!"
 
 rm -rf "$DOTFILES/bin/obsidian"
 ln -s "$OBSIDIAN_PATH/$FILENAME" "$DOTFILES/bin/obsidian"
-chmod +x "$DOTFILES/bin/obsidian"
+chmod a+x "$DOTFILES/bin/obsidian"
 echo "Obsidian version $VERSION successfully installed!"
