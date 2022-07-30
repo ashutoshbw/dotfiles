@@ -4,10 +4,18 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases
                         | grep browser_download_url \
                         | egrep 'Obsidian-([0-9]{1,}\.){3}AppImage' \
                         | cut -d '"' -f 4)
-FILENAME=$(echo $DOWNLOAD_URL | sed 's/.*\///')
+FILENAME=$(echo $DOWNLOAD_URL | egrep -o '[^\/]{1,}$')
+VERSION=$(echo $FILENAME | egrep -o '[0-9]{1,}(\.[0-9]{1,}){2}')
 OBSIDIAN_PATH="$HOME/Softwares/Obsidian"
 
 mkdir -p $OBSIDIAN_PATH
 rm -rf "$OBSIDIAN_PATH/$FILE_NAME"
 curl -L --create-dirs -o "$OBSIDIAN_PATH/$FILENAME" "$DOWNLOAD_URL"
 
+echo
+echo "Download complete!"
+
+rm -rf "$DOTFILES/bin/obsidian"
+ln -s "$OBSIDIAN_PATH/$FILENAME" "$DOTFILES/bin/obsidian"
+chmod +x "$DOTFILES/bin/obsidian"
+echo "Obsidian version $VERSION successfully installed!"
