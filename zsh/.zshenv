@@ -38,5 +38,5 @@ export XMODIFIERS=@im=ibus
 # Starship prompt config location
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/config.toml"
 
-# Add the path of my handmade scripts to $PATH
-export PATH="$HOME/.my-scripts:$PATH"
+# Add the path of my local scripts to $PATH
+export PATH="$HOME/bin:$PATH"

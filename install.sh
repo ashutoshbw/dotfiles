@@ -96,11 +96,11 @@ rm -rf "$XDG_CONFIG_HOME/starship"
 ln -s "$DOTFILES/starship" "$XDG_CONFIG_HOME"
 
 #
-# My scripts
+# User local scripts
 #
 
-rm -rf "$HOME/.my-scripts"
-ln -s "$DOTFILES/my-scripts" "$HOME/.my-scripts"
+rm -rf "$HOME/bin"
+ln -s "$DOTFILES/bin" "$HOME/bin"
 
 #
 # dunst
