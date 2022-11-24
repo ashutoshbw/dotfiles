@@ -5,24 +5,25 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- LEADER
--- These keybindings need to be defined before the first /
--- is called; otherwise, it will default to "\"
-vim.g.mapleader = ","
-vim.g.localleader = "\\"
+-- LEADERS
+vim.g.mapleader = ' '
+vim.g.localleader = '\\'
 
 -- IMPORTS
-require('vars')      -- Variables
-require('opts')      -- Options
-require('keys')      -- Keymaps
-require('plug')      -- Plugins
+require('user.vars')      -- Variables
+require('user.opts')      -- Options
+require('user.keys')      -- Keymaps
+require('user.plug')      -- Plugins
 
 -- PLUGINS
 require('nvim-tree').setup{}
---[[
-require('lualine').setup {
+
+vim.cmd('colorscheme nightfox')
+
+require('lualine').setup{
   options = {
-    theme = 'dracula-nvim'
+    icons_enabled = false,
+    section_separators = '',
+    component_separators = '',
   }
 }
--]]
