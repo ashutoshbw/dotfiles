@@ -18,12 +18,38 @@ require('user.plug')      -- Plugins
 -- PLUGINS
 require('nvim-tree').setup{}
 
-vim.cmd('colorscheme nightfox')
+vim.cmd('colorscheme tokyonight-night')
 
+vim.opt.showmode = false  -- because lualine shows mode too
 require('lualine').setup{
   options = {
-    icons_enabled = false,
-    section_separators = '',
-    component_separators = '',
+    theme = 'tokyonight',
+    disabled_filetypes = { 'NvimTree', 'packer' },
   }
 }
+
+require("bufferline").setup{
+  options = {
+    offsets = {
+      {
+        filetype = 'NvimTree',  -- shift bufferline of the place of NvimTree
+        text = 'File Explorer',
+      }
+    },
+  },
+}
+vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
+vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+vim.keymap.set('n', '<leader>w', '<Cmd>bd<CR>', {})
+
+
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+
+require('indent_blankline').setup({
+  show_trailing_blankline_indent = false,
+  show_first_indent_level = false,
+  use_treesitter = true,
+  show_current_context = false,
+  show_end_of_line = true,
+})
