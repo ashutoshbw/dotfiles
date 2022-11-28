@@ -16,7 +16,10 @@ require('user.keys')      -- Keymaps
 require('user.plug')      -- Plugins
 
 -- PLUGINS
-require('nvim-tree').setup{}
+require('nvim-tree').setup{
+  hijack_cursor = true
+}
+vim.keymap.set('n', '<leader>e', [[:NvimTreeToggle<ESC>]])  -- Toggle nvim-tree
 
 vim.cmd('colorscheme tokyonight-night')
 
@@ -53,3 +56,53 @@ require('indent_blankline').setup({
   show_current_context = false,
   show_end_of_line = true,
 })
+
+
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['bo'] = '@block.outer',
+        ['bi'] = '@block.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      }
+    },
+  },
+  ensure_installed = {
+    'javascript',
+    'typescript',
+    'tsx',
+    'css',
+    'json',
+    'lua',
+    'markdown',
+  },
+})
+
+vim.opt.foldenable = false
+vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+  callback = function()
+    vim.opt.foldmethod = 'expr'
+    vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
+  end
+})
+
+require('Comment').setup()
+require('nvim-surround').setup()
+
+require('telescope').setup()
+vim.keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
+vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')

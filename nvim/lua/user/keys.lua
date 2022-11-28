@@ -5,9 +5,6 @@ local set = vim.keymap.set
 -- remap the key used to leave insert mode
 set('i', 'jk', '<ESC>')
 
--- Toggle nvim-tree
-set('n', '<c-n>', [[:NvimTreeToggle<ESC>]])
-
 -- press <leader> and w to save in normal mode
 set('n', '<leader>w', '<cmd>write<cr>')
 
