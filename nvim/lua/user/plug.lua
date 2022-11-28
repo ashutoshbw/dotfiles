@@ -45,4 +45,12 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use {
+    "akinsho/toggleterm.nvim", tag = '*',
+    config = function()
+      require("toggleterm").setup()
+    end
+  }
+  use 'tpope/vim-fugitive'
+  use { 'lewis6991/gitsigns.nvim', tag = 'release' }
 end)
