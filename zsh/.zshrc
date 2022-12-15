@@ -85,3 +85,5 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Start starship prompt 
 eval "$(starship init zsh)"
+
+alias luamake=/home/ashutosh/Softwares/lua-language-server/3rd/luamake/luamake
