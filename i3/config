@@ -215,7 +215,7 @@ set $i3lockwall bash $XDG_CONFIG_HOME/i3/scripts/lock
 bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 
 # Wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/i3/feh/galaxy.jpg
+exec --no-startup-id feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/i3/feh/fcc-2023-desktop.png
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
