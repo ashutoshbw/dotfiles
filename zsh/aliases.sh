@@ -2,6 +2,7 @@
 alias ls='ls --color=auto'
 alias tree='tree -C'
 alias ll='ls -lah'
+alias nn="~/Softwares/Neovim/Nightly/nvim-linux64/bin/nvim"
 
 # git
 alias ga='git add'

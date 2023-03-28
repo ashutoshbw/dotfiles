@@ -25,14 +25,9 @@ ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"
 # nvim
 #
 
-mkdir -p "$XDG_CONFIG_HOME/nvim"
-mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
-ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim/init.lua"
-ln -sf "$DOTFILES/nvim/lua" "$XDG_CONFIG_HOME/nvim"
+rm -rf "$XDG_CONFIG_HOME/nvim"
+ln -s "$DOTFILES/nvim" "$XDG_CONFIG_HOME"
 
-rm -rf "$HOME/.config/local/share/nvim/site"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-                    "$HOME/.config/local/share/nvim/site/pack/packer/start/packer.nvim"
 
 #
 # ranger

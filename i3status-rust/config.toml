@@ -1,64 +1,47 @@
-theme = "modern"
+icons_format = "{icon}"
+
+[theme]
+theme = "solarized-dark"
+[theme.overrides]
+idle_bg = "#123456"
+idle_fg = "#abcdef"
+
 [icons]
-name = "material-nf"
+icons = "awesome4"
 [icons.overrides]
-pomodoro = "🍅"
+bat = " | | "
+bat_full = " |X| "
+bat_charging = " |^| "
+bat_discharging = " |v| "
 
 [[block]]
-block = "focused_window"
-max_width = 60
-show_marks = "all"
+block = "cpu"
 
 [[block]]
-block = "pomodoro"
-length = 25
-break_length = 5
-message = "Take a break!"
-break_message = "Back to work!"
-notifier = "notifysend"
-[block.theme_overrides]
-idle_bg = "#01344f"
-idle_fg = "#ffffff"
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon root: $available.eng(w:2) "
+
+[[block]]
+block = "memory"
+format = " $icon $mem_total_used_percents.eng(w:2) "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "backlight"
 
 [[block]]
 block = "time"
 interval = 5
-format = "%a %d/%m %R"
-[block.theme_overrides]
-idle_bg = "#1f3f5f"
-idle_fg = "#ffffff"
-
-[[block]]
-block = "net"
-format= "{ssid} {speed_down;K}"
-interval = 5
-[block.theme_overrides]
-idle_bg = "#102f33"
-idle_fg = "#ffffff"
-
-[[block]]
-block = "backlight"
-[block.theme_overrides]
-idle_bg = "#3c3836"
-idle_fg = "#eeeeee"
-
-[[block]]
-block = "sound"
-[block.theme_overrides]
-idle_bg = "#331f24"
-idle_fg = "#eeeeee"
-
-[[block]]
-block = "battery"
-interval = 10
-format = "{percentage} {time}"
-
-[[block]]
-block = "ibus"
-[block.mappings]
-"xkb:us::eng"="🇺🇸"
-"xkb:bd:probhat:ben"="🇧🇩"
-"uniemoji"="😎"
-[block.theme_overrides]
-idle_bg = "#12161c"
-idle_fg = "#eeeeee"
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
