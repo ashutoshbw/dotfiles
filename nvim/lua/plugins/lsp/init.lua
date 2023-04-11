@@ -10,51 +10,44 @@ return {
       require("mason").setup()
       require("mason-lspconfig").setup()
 
-      local lsp = require"lspconfig"
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lsp = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      lsp.tsserver.setup{
+      lsp.tsserver.setup({
         capabilities = capabilities,
-      }
-      lsp.html.setup{
+      })
+      lsp.html.setup({
         capabilities = capabilities,
-      }
-      lsp.emmet_ls.setup{
+      })
+      lsp.emmet_ls.setup({
         capabilities = capabilities,
-      }
+      })
 
-      lsp.jsonls.setup{
+      lsp.jsonls.setup({
         capabilities = capabilities,
-      }
+      })
 
-      lsp.html.setup{
+      lsp.html.setup({
         capabilities = capabilities,
-      }
+      })
 
-      lsp.cssls.setup{
+      lsp.cssls.setup({
         capabilities = capabilities,
-      }
+      })
 
-      lsp.eslint.setup{
-        on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-          })
-        end,
-      }
+      lsp.eslint.setup({})
 
-      lsp.lua_ls.setup {
+      lsp.lua_ls.setup({
         capabilities = capabilities,
         settings = {
           Lua = {
             runtime = {
               -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-              version = 'LuaJIT',
+              version = "LuaJIT",
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = {'vim'},
+              globals = { "vim" },
             },
             workspace = {
               -- Make the server aware of Neovim runtime files
@@ -67,10 +60,9 @@ return {
             },
           },
         },
-      }
+      })
 
       require("plugins.lsp.keymaps")
-
     end,
   },
 }

@@ -1,12 +1,12 @@
 local plugin = {
-  "jose-elias-alvarez/null-ls.nvim"
+  "jose-elias-alvarez/null-ls.nvim",
 }
 
 plugin.dependencies = {
-  "nvim-lua/plenary.nvim"
+  "nvim-lua/plenary.nvim",
 }
 
-plugin.config = function ()
+plugin.config = function()
   local null_ls = require("null-ls")
 
   local formatting = null_ls.builtins.formatting
@@ -14,7 +14,9 @@ plugin.config = function ()
 
   null_ls.setup({
     sources = {
-      diagnostics.eslint,
+      formatting.prettierd,
+      formatting.stylua,
+      diagnostics.markdownlint,
     },
   })
 end
