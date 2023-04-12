@@ -17,6 +17,7 @@ plugin.config = function()
       formatting.prettierd,
       formatting.stylua,
       diagnostics.markdownlint,
+      diagnostics.eslint_d,
     },
   })
 end
