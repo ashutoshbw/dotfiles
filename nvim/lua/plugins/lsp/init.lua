@@ -35,6 +35,8 @@ return {
         capabilities = capabilities,
       })
 
+      lsp.eslint.setup({})
+
       lsp.lua_ls.setup({
         capabilities = capabilities,
         settings = {
