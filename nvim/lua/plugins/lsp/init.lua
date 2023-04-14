@@ -27,10 +27,6 @@ return {
         capabilities = capabilities,
       })
 
-      lsp.html.setup({
-        capabilities = capabilities,
-      })
-
       lsp.cssls.setup({
         capabilities = capabilities,
       })
