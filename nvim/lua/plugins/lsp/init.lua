@@ -11,6 +11,7 @@ plugin.dependencies = {
   "williamboman/mason-lspconfig.nvim",
 }
 
+-- From: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local function on_attach(client, bufnr)
@@ -35,6 +36,7 @@ plugin.config = function()
 
   lsp.lua_ls.setup({
     capabilities = capabilities,
+    on_attach = on_attach,
     settings = {
       Lua = {
         runtime = {
@@ -58,25 +60,23 @@ plugin.config = function()
     },
   })
 
-  lsp.tsserver.setup({
-    capabilities = capabilities,
-  })
-  lsp.html.setup({
-    capabilities = capabilities,
-  })
-  lsp.emmet_ls.setup({
-    capabilities = capabilities,
-  })
+  local servers = {
+    "tsserver",
+    "html",
+    "cssls",
+    "emmet_ls",
+    "jsonls",
+    "eslint",
+  }
 
-  lsp.jsonls.setup({
+  local conf = {
     capabilities = capabilities,
-  })
+    on_attach = on_attach,
+  }
 
-  lsp.cssls.setup({
-    capabilities = capabilities,
-  })
-
-  lsp.eslint.setup({})
+  for _, server in ipairs(servers) do
+    lsp[server].setup(conf)
+  end
 
   require("plugins.lsp.keymaps")
 end
