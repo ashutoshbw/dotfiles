@@ -1,5 +1,3 @@
-local U = require("plugins/lsp/utils")
-
 local plugin = {
   "neovim/nvim-lspconfig",
 }
@@ -11,22 +9,6 @@ plugin.dependencies = {
   "williamboman/mason-lspconfig.nvim",
 }
 
--- From: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-local function on_attach(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        U.lsp_formatting(bufnr)
-      end,
-    })
-  end
-end
-
 plugin.config = function()
   require("mason").setup()
   require("mason-lspconfig").setup()
@@ -36,7 +18,6 @@ plugin.config = function()
 
   lsp.lua_ls.setup({
     capabilities = capabilities,
-    on_attach = on_attach,
     settings = {
       Lua = {
         runtime = {
@@ -71,7 +52,6 @@ plugin.config = function()
 
   local conf = {
     capabilities = capabilities,
-    on_attach = on_attach,
   }
 
   for _, server in ipairs(servers) do
