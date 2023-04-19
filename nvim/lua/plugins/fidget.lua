@@ -1,8 +1,8 @@
 local plugin = {
-  "j-hui/fidget.nvim"
+  "j-hui/fidget.nvim",
 }
 
-plugin.config = function ()
+plugin.config = function()
   require("fidget").setup({})
 end
 
