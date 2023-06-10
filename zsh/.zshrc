@@ -16,13 +16,6 @@ bindkey -v
 # Makes the switch between insert and normal mode faster
 export KEYTIMEOUT=1
 
-# User <C-g> for clearing instead of <C-l>, since tmux is using <C-l>
-# for switching to left pane
-#bindkey -r '^l'
-#bindkey -r '^g'
-#bindkey -s '^g' 'clear\n'
-
-
 # Load the `complist` module. It gives you access to `menuselect`.
 # `menuselect` allows you to customize the way you can move your cursor
 # while auto-completing.
