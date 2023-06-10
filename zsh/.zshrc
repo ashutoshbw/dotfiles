@@ -18,9 +18,9 @@ export KEYTIMEOUT=1
 
 # User <C-g> for clearing instead of <C-l>, since tmux is using <C-l>
 # for switching to left pane
-bindkey -r '^l'
-bindkey -r '^g'
-bindkey -s '^g' 'clear\n'
+#bindkey -r '^l'
+#bindkey -r '^g'
+#bindkey -s '^g' 'clear\n'
 
 
 # Load the `complist` module. It gives you access to `menuselect`.
