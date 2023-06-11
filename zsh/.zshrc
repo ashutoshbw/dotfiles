@@ -32,7 +32,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # in documentation).
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey -M vicmd E edit-command-line
 
 # start i3 automatically
 if [ "$(tty)" = "/dev/tty1" ]; then
