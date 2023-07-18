@@ -7,9 +7,9 @@ then
   pkill -f droidcam-cli
   if [[ $? -eq 0 ]]
   then
-    notify-send "Closed droidcam."
+    notify-send "Droidcam closed"
   else
-    notify-send "Droidcam started."
+    notify-send "Droidcam started"
     droidcam-cli adb 4747 &
   fi
 else

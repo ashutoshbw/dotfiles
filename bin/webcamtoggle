@@ -7,7 +7,7 @@ then
   # Killing the webcam 2nd time is necssary when 1st time doesn't kills it.
   # It happens when mpv is open and showing the last frame from /dev/video0 as a result of connection issues.
   pkill -f /dev/video
-  notify-send "mpv for wecam closed" -u low
+  notify-send "mpv closed" -u low
   pgrep droidcam-cli
   if [[ $? -eq 0 ]]
   then
@@ -23,8 +23,7 @@ else
   adb devices | grep R58R36Y5NZJ
   if [[ $? -eq 0 ]]
   then
-    notify-send "IGNORE this message if all is OK. Otherwise make sure the Droidcam is running on your phone and on PC run 'cdwebcam' twice to restart it." -u normal
-    notify-send "mpv for webcam started!" -u low
+    notify-send "mpv started" -u low
     mpv --geometry=-0-0 --autofit=30% --no-osc --no-input-default-bindings --input-conf=/dev/null av://v4l2:/dev/video0 --profile=low-latency --untimed
   fi
 fi
