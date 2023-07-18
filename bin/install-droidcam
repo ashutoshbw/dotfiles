@@ -1,0 +1,15 @@
+#!/bin/bash
+expected_sha1sum_output="7b213dcf0bb4ac20d17007f52192c7914b10ed3f  droidcam_latest.zip"
+
+cd /tmp/
+wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_2.0.0.zip
+present_sha1sum_message=`sha1sum droidcam_latest.zip`
+if [ "$expected_sha1sum_output" == "$present_sha1sum_message" ]; then
+  unzip droidcam_latest.zip -d droidcam
+  cd droidcam && sudo ./install-client
+  sudo ./install-video
+else
+  rm -rf droidcam_latest.zip
+  echo "sha1sum didn't matched. Deleted the download zip file."
+  echo "Please update the sha1sum from https://www.dev47apps.com/droidcam/linux/ in the install-droidcam script's 'expected_sha1sum_output' variable."
+fi
