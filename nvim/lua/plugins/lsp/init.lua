@@ -11,7 +11,16 @@ plugin.dependencies = {
 
 plugin.config = function()
   require("mason").setup()
-  require("mason-lspconfig").setup()
+  require("mason-lspconfig").setup({
+    ensure_installed = {
+      "tsserver",
+      "html",
+      "cssls",
+      "emmet_ls",
+      "jsonls",
+      "eslint",
+    },
+  })
 
   local lsp = require("lspconfig")
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
