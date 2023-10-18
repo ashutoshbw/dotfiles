@@ -1,9 +1,10 @@
-local plugin = {
-  "j-hui/fidget.nvim",
+return {
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {
+      -- options
+    },
+  },
 }
-
-plugin.config = function()
-  require("fidget").setup({})
-end
-
-return { plugin }
