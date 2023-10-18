@@ -4,24 +4,14 @@ local M = {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
 
-  build = function()
-    require("nvim-treesitter.install").update({ with_sync = true })
-  end,
+  build = ":TSUpdate",
 
-  config = function ()
-    require('nvim-treesitter.configs').setup({
-      highlight = {
-        enable = true,
-      },
-      ensure_installed = {
-        "javascript",
-        "typescript",
-        "tsx",
-        "html",
-        "css",
-        "json",
-        "lua",
-      },
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = { "javascript", "typescript", "tsx", "html", "css", "json" , "jsonc", "lua" },
+      sync_install = false,
+      highlight = { enable = true },
+      indent = { enable = true },
     })
 
     -- Enable folding based on treesitter
@@ -29,7 +19,7 @@ local M = {
     vim.o.foldexpr = "nvim_treesitter#foldexpr()"
     vim.o.foldenable = false
     vim.o.foldlevel = 1000
-  end
+  end,
 }
 
 return { M }
