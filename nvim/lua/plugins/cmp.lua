@@ -88,16 +88,16 @@ return {
           ["<C-e>"] = cmp.mapping.abort(),
 
           ["<C-s>"] = cmp.mapping.complete(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
-          ["<Tab>"] = cmp.mapping(function(fallback)
+          ["nn<leader>"] = cmp.mapping(function(fallback)
             if luasnip.jumpable(1) then
               luasnip.jump(1)
             else
               fallback()
             end
           end, { "i", "s" }),
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
+          ["pp<leader>"] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
               luasnip.jump(-1)
             else
