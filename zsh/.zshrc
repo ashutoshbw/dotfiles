@@ -78,10 +78,6 @@ fi
 # zsh-syntax-highlighting plugin 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# fnm
-export PATH=$HOME/.fnm:$PATH
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
-
 # Start starship prompt 
 eval "$(starship init zsh)"
 
