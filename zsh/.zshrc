@@ -86,3 +86,7 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 eval "$(starship init zsh)"
 
 alias luamake=/home/ashutosh/Softwares/lua-language-server/3rd/luamake/luamake
+
+# tabtab source for pnpm package
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
