@@ -7,6 +7,7 @@ local icons = {
 
 return {
   "akinsho/bufferline.nvim",
+  event = "UIEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local bufferline = require("bufferline")
