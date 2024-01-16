@@ -21,6 +21,15 @@ return {
           return (icons[level] or "?") .. " " .. count
         end,
         diagnostics_update_in_insert = false,
+        offsets = {
+          {
+            text = "EXPLORER",
+            filetype = "neo-tree",
+            highlight = "PanelHeading",
+            text_align = "left",
+            separator = true,
+          },
+        },
       },
     })
 
