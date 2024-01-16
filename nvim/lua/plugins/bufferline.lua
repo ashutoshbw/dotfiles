@@ -37,6 +37,7 @@ return {
     vim.keymap.set("n", "]b", "<Cmd>BufferLineMovePrev<CR>", { desc = "bufferline: move prev" })
     vim.keymap.set("n", "gbb", "<Cmd>BufferLinePick<CR>", { desc = "bufferline: pick buffer" })
     vim.keymap.set("n", "gbd", "<Cmd>BufferLinePickClose<CR>", { desc = "bufferline: delete buffer" })
+    vim.keymap.set("n", "gbc", "<Cmd>bp | bd #<CR>", { desc = "Delete current buffer by first switching to another buffer" })
     vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "bufferline: prev" })
     vim.keymap.set("n", "<leader><tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "bufferline: next" })
   end,
