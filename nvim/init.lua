@@ -11,8 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+-- Make sure to set `mapleader` before lazy so your mappings are correct.
+-- This is in config.settings
+require("config.settings")
 
 require("lazy").setup("plugins", {
   change_detection = {
@@ -20,5 +21,4 @@ require("lazy").setup("plugins", {
   },
 })
 
-require("config.settings")
 require("config.diagnostics")
