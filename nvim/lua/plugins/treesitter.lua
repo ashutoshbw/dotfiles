@@ -1,24 +1,27 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
-
   build = ":TSUpdate",
-
   config = function()
     require("nvim-treesitter.configs").setup({
-      ensure_installed = { "javascript", "typescript", "tsx", "html", "css", "json" , "jsonc", "lua" },
-      sync_install = false,
+      ensure_installed = {
+        -- first five in this list should always be installed
+        -- namely, c, lua, vim, vimdoc and query
+        "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
+        "json",
+        "jsonc",
+      },
       highlight = { enable = true },
       indent = { enable = true },
     })
-
-    -- Enable folding based on treesitter
-    vim.o.foldmethod = "expr"
-    vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.o.foldenable = false
-    vim.o.foldlevel = 1000
   end,
 }
 
