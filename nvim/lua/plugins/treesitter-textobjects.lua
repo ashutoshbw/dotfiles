@@ -1,13 +1,13 @@
 local plugin = {
-  "nvim-treesitter/nvim-treesitter-textobjects"
+  "nvim-treesitter/nvim-treesitter-textobjects",
 }
 
 plugin.dependencies = {
   "nvim-treesitter/nvim-treesitter",
 }
 
-plugin.config = function ()
-  require('nvim-treesitter.configs').setup({
+plugin.config = function()
+  require("nvim-treesitter.configs").setup({
     textobjects = {
       select = {
         enable = true,
@@ -16,8 +16,7 @@ plugin.config = function ()
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
           ["ac"] = "@class.outer",
-          ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-          ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+          ["ic"] = "@class.inner",
         },
       },
     },
