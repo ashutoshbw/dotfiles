@@ -38,15 +38,15 @@ return {
         },
       })
 
-      vim.keymap.set("n", "[b", "<Cmd>BufferLineMoveNext<CR>", { desc = "bufferline: move next" })
-      vim.keymap.set("n", "]b", "<Cmd>BufferLineMovePrev<CR>", { desc = "bufferline: move prev" })
+      vim.keymap.set("n", "]b", "<Cmd>BufferLineMoveNext<CR>", { desc = "bufferline: move next" })
+      vim.keymap.set("n", "[b", "<Cmd>BufferLineMovePrev<CR>", { desc = "bufferline: move prev" })
       vim.keymap.set("n", "<leader>p", "<Cmd>BufferLinePick<CR>", { desc = "bufferline: pick buffer" })
       vim.keymap.set("n", "<leader>P", "<Cmd>BufferLinePickClose<CR>", { desc = "bufferline: delete buffer" })
       vim.keymap.set("n", "<leader>x", function()
         require("bufdelete").bufdelete(0)
       end, { desc = "Delete current buffer by first switching to another buffer" })
-      vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "bufferline: prev" })
-      vim.keymap.set("n", "<leader><tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "bufferline: next" })
+      vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "bufferline: next" })
+      vim.keymap.set("n", "<leader><tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "bufferline: prev" })
     end,
   },
 }
