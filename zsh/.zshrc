@@ -89,3 +89,11 @@ alias luamake=/home/ashutosh/Softwares/lua-language-server/3rd/luamake/luamake
 
 # pnpm-shell-completion by g-plane(https://github.com/g-plane/pnpm-shell-completion)
 source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
+
+# pnpm
+export PNPM_HOME="/home/ashutosh/.config/local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

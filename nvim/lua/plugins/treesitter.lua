@@ -1,4 +1,4 @@
-local M = {
+local treesitter = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function()
@@ -25,4 +25,38 @@ local M = {
   end,
 }
 
-return { M }
+local text_objects = {
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
+      },
+    })
+  end,
+}
+
+local context = {
+  "nvim-treesitter/nvim-treesitter-context",
+  config = function()
+    vim.keymap.set("n", "[c", function()
+      require("treesitter-context").go_to_context(vim.v.count1)
+    end, { silent = true })
+    vim.keymap.set("n", "[x", "<Cmd>TSContextToggle<CR>")
+    vim.cmd("hi TreesitterContextBottom gui=underline guisp=Grey")
+  end,
+}
+
+return { treesitter, text_objects, context }

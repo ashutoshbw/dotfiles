@@ -13,7 +13,7 @@ plugin.config = function()
   require("mason").setup()
   require("mason-lspconfig").setup({
     ensure_installed = {
-      "tsserver",
+      "ts_ls",
       "html",
       "cssls",
       "emmet_ls",
@@ -51,7 +51,7 @@ plugin.config = function()
   })
 
   local servers = {
-    "tsserver",
+    "ts_ls",
     "html",
     "cssls",
     "emmet_ls",
