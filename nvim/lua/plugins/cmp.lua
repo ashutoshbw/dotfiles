@@ -3,6 +3,8 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
+      "luckasRanarison/tailwind-tools.nvim",
+      "onsails/lspkind-nvim",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -27,42 +29,6 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip")
 
-      local kind_icons = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "פּ",
-        Event = "",
-        Operator = "",
-        TypeParameter = "",
-      }
-
-      local menu_icons = {
-        nvim_lsp = "λ",
-        luasnip = "⋗",
-        buffer = "Ω",
-        path = "🖫",
-        cmdline = "≥",
-      }
-
       cmp.setup({
         snippet = {
           -- REQUIRED - you must specify a snippet engine
@@ -74,8 +40,12 @@ return {
           end,
         },
         window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+          }),
+          documentation = cmp.config.window.bordered({
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+          }),
         },
         mapping = cmp.mapping.preset.insert({
           ["<Up>"] = cmp.mapping.select_prev_item(),
@@ -106,14 +76,9 @@ return {
           end, { "i", "s" }),
         }),
         formatting = {
-          fields = { "menu", "abbr", "kind" },
-          format = function(entry, item)
-            -- Kind icons
-            item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
-            -- Source
-            item.menu = string.format("%s", menu_icons[entry.source.name] or entry.source.name)
-            return item
-          end,
+          format = require("lspkind").cmp_format({
+            before = require("tailwind-tools.cmp").lspkind_format,
+          }),
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
