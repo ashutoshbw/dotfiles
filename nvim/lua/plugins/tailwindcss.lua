@@ -8,10 +8,5 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
     "neovim/nvim-lspconfig", -- optional
   },
-  opts = {
-    conceal = {
-      enabled = true,
-      symbol = "~",
-    }
-  }, -- your configuration
+  opts = {}, -- your configuration
 }
