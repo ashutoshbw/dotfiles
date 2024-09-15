@@ -77,6 +77,7 @@ return {
         }),
         formatting = {
           format = require("lspkind").cmp_format({
+            mode = "symbol",
             before = require("tailwind-tools.cmp").lspkind_format,
           }),
         },
