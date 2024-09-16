@@ -210,6 +210,8 @@ bar {
     }
 }
 
+bindsym $mod+b bar mode toggle
+
 # On locking
 set $i3lockwall bash $XDG_CONFIG_HOME/i3/scripts/lock
 bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
