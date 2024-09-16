@@ -22,6 +22,13 @@ rm -rf "$XDG_CONFIG_HOME/alacritty"
 ln -s "$DOTFILES/alacritty" "$XDG_CONFIG_HOME"
 
 #
+# kitty
+#
+
+rm -rf "$XDG_CONFIG_HOME/kitty"
+ln -s "$DOTFILES/kitty" "$XDG_CONFIG_HOME"
+
+#
 # nvim
 #
 
