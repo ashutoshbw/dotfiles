@@ -211,6 +211,8 @@ bar {
 }
 
 bindsym $mod+b bar mode toggle
+bindsym $mod+i bar mode dock
+bindsym $mod+o bar mode invisible
 
 # On locking
 set $i3lockwall bash $XDG_CONFIG_HOME/i3/scripts/lock
