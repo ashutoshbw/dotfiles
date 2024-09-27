@@ -227,9 +227,10 @@ for_window [window_role="task_dialog"] floating enable
 for_window [class="Arandr"] floating enable
 
 # Hides title bar and enable gaps
-default_border pixel 2
-smart_gaps on
-gaps inner 8
+default_border pixel 1
+for_window [class="kitty"] border pixel 0
+#smart_gaps on
+#gaps inner 8
 
 # Hide edge borders only if there is one window with no gaps
 hide_edge_borders smart_no_gaps
