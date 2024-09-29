@@ -25,6 +25,10 @@ export HISTSIZE=10000
 # Maximum events in history file
 export SAVEHIST=10000
 
+# The command name to assume if a redirection is specified with no command.
+# Defaults to cat.
+export NULLCMD=":"
+
 # Make fzf use ripgrep and search for 
 # files, hidden ones too, and not .git file or directory
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
