@@ -22,6 +22,14 @@ local treesitter = {
       highlight = { enable = true },
       indent = { enable = true },
     })
+
+    -- MDX
+    vim.filetype.add({
+      extension = {
+        mdx = "mdx",
+      },
+    })
+    vim.treesitter.language.register("markdown", "mdx")
   end,
 }
 
