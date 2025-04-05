@@ -1,7 +1,7 @@
 local U = require("plugins/lsp/utils")
 
 local plugin = {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
 }
 
 plugin.dependencies = {
