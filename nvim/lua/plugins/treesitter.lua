@@ -18,6 +18,7 @@ local treesitter = {
         "css",
         "json",
         "jsonc",
+        "astro",
       },
       highlight = { enable = true },
       indent = { enable = true },
