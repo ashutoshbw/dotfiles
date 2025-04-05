@@ -19,6 +19,7 @@ plugin.config = function()
       "emmet_ls",
       "jsonls",
       "eslint",
+      "astro",
     },
   })
 
@@ -57,6 +58,7 @@ plugin.config = function()
     "emmet_ls",
     "jsonls",
     "eslint",
+    "astro",
   }
 
   local conf = {
