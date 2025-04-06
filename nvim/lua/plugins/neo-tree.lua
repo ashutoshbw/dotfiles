@@ -29,13 +29,14 @@ return {
             -- Status type
             untracked = "",
             ignored = "",
-            unstaged = "󰄱",
-            staged = "",
+            unstaged = "●",
+            staged = "",
             conflict = "",
           },
         },
       },
       window = {
+        width = 40,
         position = "right",
       },
     })
