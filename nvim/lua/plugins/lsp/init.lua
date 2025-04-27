@@ -20,6 +20,7 @@ plugin.config = function()
       "jsonls",
       "eslint",
       "astro",
+      "stylelint_lsp",
     },
   })
 
@@ -47,6 +48,15 @@ plugin.config = function()
         telemetry = {
           enable = false,
         },
+      },
+    },
+  })
+
+  lsp.stylelint_lsp.setup({
+    capabilities = capabilities,
+    settings = {
+      stylelintplus = {
+        autoFixOnFormat = true,
       },
     },
   })
