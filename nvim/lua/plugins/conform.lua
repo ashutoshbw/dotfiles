@@ -23,6 +23,7 @@ return {
       typescriptreact = js_formatter,
       vue = js_formatter,
       html = { "prettier" },
+      css = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
       markdown = { "prettier" },
