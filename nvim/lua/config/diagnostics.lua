@@ -1,23 +1,20 @@
-local sign = function(opts)
-  vim.fn.sign_define(opts.name, {
-    texthl = opts.name,
-    text = opts.text,
-    numhl = ''
-  })
-end
-
-sign({name = 'DiagnosticSignError', text = 'E'})
-sign({name = 'DiagnosticSignWarn', text = 'W'})
-sign({name = 'DiagnosticSignHint', text = 'H'})
-sign({name = 'DiagnosticSignInfo', text = 'I'})
-
 vim.diagnostic.config({
-  virtual_text = {
-    source = "always",  -- Or "if_many"
-    -- prefix = '●', -- Could be '■'(default), '▎', 'x'
+  signs = {
+    active = true, -- Enable signs explicitly
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = "󰋼 ",
+      [vim.diagnostic.severity.HINT] = "󰌵 ",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+    },
   },
-  severity_sort = true,
-  float = {
-    source = "always",  -- Or "if_many"
-  },
+  virtual_text = false, -- Optional: disable virtual text
+  update_in_insert = false, -- Optional: don’t update diagnostics in insert mode
+  severity_sort = true, -- Optional: sort diagnostics by severity
 })
